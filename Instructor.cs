@@ -1,15 +1,9 @@
 namespace tanulokozpont
 {
-   class Instructor
+   class Instructor(string name)
    {
-      public string Name { get; set; }
-      public List<Course> Courses { get; set; }
-
-      public Instructor(string name)
-      {
-         Name = name;
-         Courses = new List<Course>();
-      }
+      public string Name { get; set; } = name;
+      public List<Course> Courses { get; set; } = new List<Course>();
 
       public void AddCourse(Course course)
       {

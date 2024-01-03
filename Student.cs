@@ -1,17 +1,10 @@
 namespace tanulokozpont
 {
-   class Student 
+   class Student (string name, DateTime birthDate)
    {
-      public string Name { get; set; }
-      public DateTime BirthDate { get; set; }
-      public List<int> Grades { get; set; }
-
-      public Student(string name, DateTime birthDate)
-      {
-         Name = name;
-         BirthDate = birthDate;
-         Grades = new List<int>();
-      }
+      public string Name { get; set; } = name;
+      public DateTime BirthDate { get; set; } = birthDate;
+      public List<int> Grades { get; set; } = new List<int>();
 
       public void AddGrade(int grade)
       {
