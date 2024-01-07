@@ -2,8 +2,14 @@ namespace tanulokozpont
 {
    static class Database
    {
-      static List<Student> students = new List<Student>();
-      static List<Instructor> instructors = new List<Instructor>();
-      static List<Course> courses = new List<Course>();
+      public static List<Student> students;
+      public static List<Instructor> instructors;
+      public static List<Course> courses;
+
+      public static void Init() {
+         students = new List<Student>();
+         instructors = new List<Instructor>();
+         courses = new List<Course>();
+      }
    }
 }
