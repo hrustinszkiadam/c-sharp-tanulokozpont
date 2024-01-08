@@ -12,10 +12,34 @@ namespace tanulokozpont
 
       public void ListCourses()
       {
-         foreach (Course course in Courses)
+         Console.WriteLine($"{Types.COURSE_TYPE_PLURAL}: ", (", ", Courses.Select(course => course.Name)));
+      }
+
+      public static void List()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.INSTRUCTOR_TYPE_PLURAL} listája");
+         Console.WriteLine("===============");
+         Console.WriteLine();
+
+         foreach (Instructor instructor in Database.instructors)
          {
-            Console.WriteLine(course.Name);
+            Console.WriteLine($"{instructor.Name}");
+            instructor.ListCourses();
+
          }
+         Console.Write("Nyomj meg egy gombot a folytatáshoz... ");
+         Console.ReadKey();
+      }
+
+      public static void Add()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.INSTRUCTOR_TYPE} hozzáadása");
+         Console.WriteLine("=================");
+         Console.WriteLine();
+
+         Database.instructors.Add(GetInfo.GetInstructorInfo());
       }
    }
 }

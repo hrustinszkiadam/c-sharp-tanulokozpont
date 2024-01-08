@@ -19,5 +19,33 @@ namespace tanulokozpont
          
          return sum / Grades.Count;
       }
+
+      public static void List()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.STUDENT_TYPE_PLURAL} listája");
+         Console.WriteLine("===============");
+         Console.WriteLine();
+
+         foreach (Student student in Database.students)
+         {
+            Console.WriteLine($"{student.Name} - ({student.BirthDate:yyyy.MM.dd})");
+            Console.WriteLine($"Átlag: {student.GetAverageGrade()}");
+            Console.WriteLine();
+         }
+
+         Console.Write("Nyomj meg egy gombot a folytatáshoz... ");
+         Console.ReadKey();
+      }
+
+      public static void Add()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.STUDENT_TYPE} hozzáadása");
+         Console.WriteLine("=================");
+         Console.WriteLine();
+
+         Database.students.Add(GetInfo.GetStudentInfo());
+      }
    }
 }
