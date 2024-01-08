@@ -41,5 +41,16 @@ namespace tanulokozpont
 
          Database.instructors.Add(GetInfo.GetInstructorInfo());
       }
+
+      public static void Delete()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.INSTRUCTOR_TYPE} törlése");
+         Console.WriteLine("===============");
+         Console.WriteLine();
+
+         int index = Database.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
+         Database.instructors.RemoveAt(index);
+      }
    }
 }
