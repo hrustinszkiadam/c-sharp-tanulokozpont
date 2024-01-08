@@ -97,14 +97,17 @@ namespace tanulokozpont
             Console.WriteLine("3. Módosítás");
             Console.WriteLine("4. Törlés");
             Console.WriteLine("5. Kilépés");
+            Console.WriteLine();
         }
 
         static void PrintNextMenu()
         {
+            Console.Clear();
             Console.WriteLine($"1. {Types.STUDENT_TYPE}");
             Console.WriteLine($"2. {Types.INSTRUCTOR_TYPE}");
             Console.WriteLine($"3. {Types.COURSE_TYPE}");
             Console.WriteLine("4. Vissza");
+            Console.WriteLine();
         }
     }
 }
