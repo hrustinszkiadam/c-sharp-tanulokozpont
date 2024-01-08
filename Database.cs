@@ -8,7 +8,6 @@ namespace tanulokozpont
 
       public static int ChooseIndex(string type, int listLength)
       {
-         Console.Write($"Kérem a {type} sorszámát: ");
          int index = -1;
          while (index < 0 || index >= listLength)
          {

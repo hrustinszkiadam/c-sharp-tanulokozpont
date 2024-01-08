@@ -47,6 +47,11 @@ namespace tanulokozpont
          Console.WriteLine("===============");
          Console.WriteLine();
 
+         for(int i = 0; i < Database.instructors.Count; i++)
+         {
+            Console.WriteLine($"{i + 1}. {Database.instructors[i].Name}");
+         }
+
          int index = Database.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
          Database.instructors.RemoveAt(index);
       }

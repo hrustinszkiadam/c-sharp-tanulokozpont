@@ -50,6 +50,11 @@ namespace tanulokozpont
          Console.WriteLine("===============");
          Console.WriteLine();
 
+         for(int i = 0; i < Database.courses.Count; i++)
+         {
+            Console.WriteLine($"{i + 1}. {Database.courses[i].Name}");
+         }
+
          int index = Database.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
          Database.courses.RemoveAt(index);
       }

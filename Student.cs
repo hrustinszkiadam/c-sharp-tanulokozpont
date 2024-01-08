@@ -51,6 +51,11 @@ namespace tanulokozpont
          Console.WriteLine("===============");
          Console.WriteLine();
 
+         for(int i = 0; i < Database.students.Count; i++)
+         {
+            Console.WriteLine($"{i + 1}. {Database.students[i].Name} - ({Database.students[i].BirthDate:yyyy.MM.dd})");
+         }
+
          int index = Database.ChooseIndex(Types.STUDENT_TYPE, Database.students.Count);
          Database.students.RemoveAt(index);
       }
