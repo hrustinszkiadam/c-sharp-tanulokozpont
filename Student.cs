@@ -11,13 +11,13 @@ namespace tanulokozpont
          Grades.Add(grade);
       }
 
-      public double GetAverageGrade()
+      public object GetAverageGrade()
       {
          double sum = 0;
          foreach (int grade in Grades)
             sum += grade;
          
-         return sum / Grades.Count;
+         return double.IsNaN(sum / Grades.Count) ? "Nincs jegy" : (sum / Grades.Count);
       }
 
       public static void List()
@@ -33,9 +33,6 @@ namespace tanulokozpont
             Console.WriteLine($"Átlag: {student.GetAverageGrade()}");
             Console.WriteLine();
          }
-
-         Console.Write("Nyomj meg egy gombot a folytatáshoz... ");
-         Console.ReadKey();
       }
 
       public static void Add()

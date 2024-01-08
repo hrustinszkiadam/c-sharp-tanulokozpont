@@ -28,8 +28,6 @@ namespace tanulokozpont
             instructor.ListCourses();
 
          }
-         Console.Write("Nyomj meg egy gombot a folytatáshoz... ");
-         Console.ReadKey();
       }
 
       public static void Add()

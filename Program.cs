@@ -66,6 +66,7 @@ namespace tanulokozpont
                                 break;
                         }
                         break;
+                    */
                     case 4:
                         switch (nextAction)
                         {
@@ -80,11 +81,11 @@ namespace tanulokozpont
                                 break;
                         }
                         break;
-                    */
                     default:
                         break;
                 }
 
+                Console.WriteLine("Nyomj meg egy gombot a folytatáshoz...");
                 Console.ReadKey();
             }
         }
