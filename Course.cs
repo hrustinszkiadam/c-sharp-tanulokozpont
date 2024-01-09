@@ -72,8 +72,32 @@ namespace tanulokozpont
          Console.WriteLine();
 
          PrintCourseWithIndex();
-
          int index = GetInfo.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
+
+         Console.Clear();
+         Console.WriteLine("Mit szeretnél módosítani?");
+         Console.WriteLine("1. Név");
+         Console.WriteLine("2. Leírás");
+         Console.WriteLine("3. Mindkettő");
+         Console.WriteLine("4. Vissza");
+
+         int modifyType = GetInfo.GetAction(4);
+
+         switch (modifyType)
+         {
+            case 1:
+               Database.courses[index].Name = GetInfo.GetName(Types.COURSE_TYPE);
+               break;
+            case 2:
+               Database.courses[index].Description = GetInfo.GetDescription();
+               break;
+            case 3:
+               Database.courses[index] = GetInfo.GetCourseInfo();
+               break;
+            default:
+               break;
+         }
+
          Database.courses[index] = GetInfo.GetCourseInfo();
       }
    }

@@ -19,9 +19,8 @@ namespace tanulokozpont
          return name;
       }
 
-        public static Student GetStudentInfo()
+        public static DateTime GetBirthDate()
         {
-            string name = GetName(Types.STUDENT_TYPE);
             DateTime birthDate;
             while (true)
             {
@@ -35,7 +34,25 @@ namespace tanulokozpont
                 else Console.WriteLine("Hibás dátum!");
             }
 
-            return new(name, birthDate);
+            return birthDate;
+        }
+        
+        public static string GetDescription()
+        {
+            Console.Write("Leírás: ");
+            string description;
+            while (true)
+            {
+                description = Console.ReadLine() ?? "";
+                if (description.Length > 0) break;
+                Console.Write("Leírás: ");
+            }
+            return description;
+        }
+
+        public static Student GetStudentInfo()
+        {
+            return new(GetName(Types.STUDENT_TYPE), GetBirthDate());
         }
 
         public static Instructor GetInstructorInfo()
@@ -45,18 +62,7 @@ namespace tanulokozpont
 
         public static Course GetCourseInfo()
         {
-            string name = GetName(Types.COURSE_TYPE);
-            string description;
-
-            Console.Write("Leírás: ");
-            while (true)
-            {
-                description = Console.ReadLine() ?? "";
-                if (description.Length > 0) break;
-                Console.Write("Leírás: ");
-            }
-
-            return new(name, description);
+            return new(GetName(Types.COURSE_TYPE), GetDescription());
         }
 
         public static int GetAction(int numberOfActions)
@@ -83,7 +89,6 @@ namespace tanulokozpont
             }
             return action;
         }
-
         
         public static int ChooseIndex(string type, int listLength)
         {
@@ -95,6 +100,18 @@ namespace tanulokozpont
             }
 
             return index;
+        }
+
+        public static int GetGrade()
+        {
+            int grade = 0;
+            while (grade < 1 || grade > 5)
+            {
+                Console.Write("Kérem a jegyet: ");
+                grade = int.Parse(Console.ReadLine() ?? "0");
+            }
+
+            return grade;
         }
    }
 }

@@ -69,9 +69,23 @@ namespace tanulokozpont
          Console.WriteLine();
 
          PrintInstructorWithIndex();
-
          int index = GetInfo.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
-         Database.instructors[index] = GetInfo.GetInstructorInfo();
+
+         Console.Clear();
+         Console.WriteLine("Mit szeretnél módosítani?");
+         Console.WriteLine("1. Név");
+         Console.WriteLine("2. Vissza");
+         
+         int action = GetInfo.GetAction(2);
+         switch (action)
+         {
+            case 1:
+               Database.instructors[index] = GetInfo.GetInstructorInfo();
+               break;
+            default:
+               break;
+         }
+
       }
    }
 }

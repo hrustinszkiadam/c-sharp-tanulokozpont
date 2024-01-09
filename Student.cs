@@ -74,9 +74,50 @@ namespace tanulokozpont
          Console.WriteLine();
 
          PrintStudentWithIndex();
-
          int index = GetInfo.ChooseIndex(Types.STUDENT_TYPE, Database.students.Count);
-         Database.students[index] = GetInfo.GetStudentInfo();
+
+         Console.Clear();
+         Console.WriteLine("Mit szeretnél módosítani?");
+         Console.WriteLine("1. Jegy hozzáadása");
+         Console.WriteLine("2. Tanuló adatainak módosítása");
+         Console.WriteLine("3. Vissza");
+
+
+         int modifyType = GetInfo.GetAction(3);
+
+         switch (modifyType) 
+         {
+            case 1:
+               Database.students[index].AddGrade(GetInfo.GetGrade());
+               break;
+            case 2:
+               Console.Clear();
+               Console.WriteLine("Mit szeretnél módosítani?");
+               Console.WriteLine("1. Név");
+               Console.WriteLine("2. Születési dátum");
+               Console.WriteLine("3. Mindkettő");
+               Console.WriteLine("4. Vissza");
+
+               int modifyDataType = GetInfo.GetAction(4);
+
+               switch (modifyDataType)
+               {
+                  case 1:
+                     Database.students[index].Name = GetInfo.GetName(Types.STUDENT_TYPE);
+                     break;
+                  case 2:
+                     Database.students[index].BirthDate = GetInfo.GetBirthDate();
+                     break;
+                  case 3:
+                     Database.students[index] = GetInfo.GetStudentInfo();
+                     break;
+                  default:
+                     break;
+               }
+               break;
+            default:
+               break;
+         }
       }
    }
 }
