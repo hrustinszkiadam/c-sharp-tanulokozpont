@@ -45,19 +45,38 @@ namespace tanulokozpont
          Database.students.Add(GetInfo.GetStudentInfo());
       }
 
-      public static void Delete() {
+      private static void PrintStudentWithIndex()
+      {
+         for (int i = 0; i < Database.students.Count; i++)
+         {
+            Console.WriteLine($"{i + 1}. {Database.students[i].Name} - ({Database.students[i].BirthDate:yyyy.MM.dd})");
+         }
+      }
+
+      public static void Delete()
+      {
          Console.Clear();
          Console.WriteLine($"{Types.STUDENT_TYPE} törlése");
          Console.WriteLine("===============");
          Console.WriteLine();
 
-         for(int i = 0; i < Database.students.Count; i++)
-         {
-            Console.WriteLine($"{i + 1}. {Database.students[i].Name} - ({Database.students[i].BirthDate:yyyy.MM.dd})");
-         }
+         PrintStudentWithIndex();
 
          int index = Database.ChooseIndex(Types.STUDENT_TYPE, Database.students.Count);
          Database.students.RemoveAt(index);
+      }
+
+      public static void Modify()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.STUDENT_TYPE} módosítása");
+         Console.WriteLine("=================");
+         Console.WriteLine();
+
+         PrintStudentWithIndex();
+
+         int index = Database.ChooseIndex(Types.STUDENT_TYPE, Database.students.Count);
+         Database.students[index] = GetInfo.GetStudentInfo();
       }
    }
 }

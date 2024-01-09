@@ -51,7 +51,6 @@ namespace tanulokozpont
                                 break;
                         }
                         break;
-                    /*
                     case 3:
                         switch (nextAction)
                         {
@@ -66,7 +65,6 @@ namespace tanulokozpont
                                 break;
                         }
                         break;
-                    */
                     case 4:
                         switch (nextAction)
                         {

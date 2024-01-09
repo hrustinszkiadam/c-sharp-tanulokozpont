@@ -43,6 +43,14 @@ namespace tanulokozpont
          Database.courses.Add(GetInfo.GetCourseInfo());
       }
 
+      private static void PrintCourseWithIndex()
+      {
+         for (int i = 0; i < Database.courses.Count; i++)
+         {
+            Console.WriteLine($"{i + 1}. {Database.courses[i].Name}");
+         }
+      }
+
       public static void Delete()
       {
          Console.Clear();
@@ -50,13 +58,23 @@ namespace tanulokozpont
          Console.WriteLine("===============");
          Console.WriteLine();
 
-         for(int i = 0; i < Database.courses.Count; i++)
-         {
-            Console.WriteLine($"{i + 1}. {Database.courses[i].Name}");
-         }
+         PrintCourseWithIndex();
 
          int index = Database.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
          Database.courses.RemoveAt(index);
+      }
+
+      public static void Modify()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.COURSE_TYPE} módosítása");
+         Console.WriteLine("=================");
+         Console.WriteLine();
+
+         PrintCourseWithIndex();
+
+         int index = Database.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
+         Database.courses[index] = GetInfo.GetCourseInfo();
       }
    }
 }

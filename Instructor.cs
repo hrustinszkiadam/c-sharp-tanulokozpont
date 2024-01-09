@@ -40,6 +40,14 @@ namespace tanulokozpont
          Database.instructors.Add(GetInfo.GetInstructorInfo());
       }
 
+      private static void PrintInstructorWithIndex()
+      {
+         for (int i = 0; i < Database.instructors.Count; i++)
+         {
+            Console.WriteLine($"{i + 1}. {Database.instructors[i].Name}");
+         }
+      }
+
       public static void Delete()
       {
          Console.Clear();
@@ -47,13 +55,23 @@ namespace tanulokozpont
          Console.WriteLine("===============");
          Console.WriteLine();
 
-         for(int i = 0; i < Database.instructors.Count; i++)
-         {
-            Console.WriteLine($"{i + 1}. {Database.instructors[i].Name}");
-         }
+         PrintInstructorWithIndex();
 
          int index = Database.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
          Database.instructors.RemoveAt(index);
+      }
+
+      public static void Modify()
+      {
+         Console.Clear();
+         Console.WriteLine($"{Types.INSTRUCTOR_TYPE} módosítása");
+         Console.WriteLine("=================");
+         Console.WriteLine();
+
+         PrintInstructorWithIndex();
+
+         int index = Database.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
+         Database.instructors[index] = GetInfo.GetInstructorInfo();
       }
    }
 }
