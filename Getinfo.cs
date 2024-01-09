@@ -52,17 +52,21 @@ namespace tanulokozpont
 
         public static Student GetStudentInfo()
         {
-            return new(GetName(Types.STUDENT_TYPE), GetBirthDate());
+            string name = GetName(Types.STUDENT_TYPE);
+            DateTime birthDate = GetBirthDate();
+            return new(name, birthDate);
         }
 
         public static Instructor GetInstructorInfo()
-      {
-         return new(GetName(Types.INSTRUCTOR_TYPE));
-      }
+        {
+            return new(GetName(Types.INSTRUCTOR_TYPE));
+        }
 
         public static Course GetCourseInfo()
         {
-            return new(GetName(Types.COURSE_TYPE), GetDescription());
+            string name = GetName(Types.COURSE_TYPE);
+            string description = GetDescription();
+            return new(name, description);
         }
 
         public static int GetAction(int numberOfActions)
