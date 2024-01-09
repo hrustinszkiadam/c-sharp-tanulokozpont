@@ -83,5 +83,18 @@ namespace tanulokozpont
             }
             return action;
         }
+
+        
+        public static int ChooseIndex(string type, int listLength)
+        {
+            int index = -1;
+            while (index < 0 || index >= listLength)
+            {
+            Console.Write($"Kérem a {type} sorszámát: ");
+            index = int.Parse(Console.ReadLine() ?? "0") - 1;
+            }
+
+            return index;
+        }
    }
 }

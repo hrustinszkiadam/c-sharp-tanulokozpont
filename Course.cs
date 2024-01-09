@@ -60,7 +60,7 @@ namespace tanulokozpont
 
          PrintCourseWithIndex();
 
-         int index = Database.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
+         int index = GetInfo.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
          Database.courses.RemoveAt(index);
       }
 
@@ -73,7 +73,7 @@ namespace tanulokozpont
 
          PrintCourseWithIndex();
 
-         int index = Database.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
+         int index = GetInfo.ChooseIndex(Types.COURSE_TYPE, Database.courses.Count);
          Database.courses[index] = GetInfo.GetCourseInfo();
       }
    }
