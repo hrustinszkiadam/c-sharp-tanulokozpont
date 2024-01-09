@@ -57,7 +57,7 @@ namespace tanulokozpont
 
          PrintInstructorWithIndex();
 
-         int index = Database.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
+         int index = GetInfo.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
          Database.instructors.RemoveAt(index);
       }
 
@@ -70,7 +70,7 @@ namespace tanulokozpont
 
          PrintInstructorWithIndex();
 
-         int index = Database.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
+         int index = GetInfo.ChooseIndex(Types.INSTRUCTOR_TYPE, Database.instructors.Count);
          Database.instructors[index] = GetInfo.GetInstructorInfo();
       }
    }
